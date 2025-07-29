@@ -1,10 +1,9 @@
-async function generatorQRCode() {
+function generatorQRCode() {
   const qrInput = document.getElementById("qrInput").value.trim();
   const qrdImage = document.getElementById("qrCodeImage");
 
   if (qrInput === "") {
-    document.getElementById("msgErro").innerText =
-      "Please enter text or URL to generate QR code";
+    showWarning("Please enter text or URL to generate QR code");
     return;
   }
 
@@ -16,6 +15,11 @@ async function generatorQRCode() {
 
   document.getElementById("msgErro").innerText = "";
   document.getElementById("qrInput").value = "";
+  document.getElementById("qrInput").focus();
+}
+
+function showWarning(msg) {
+  document.getElementById("msgErro").innerText = msg;
 }
 
 document
